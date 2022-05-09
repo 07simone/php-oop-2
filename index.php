@@ -3,8 +3,10 @@
     
     include_once __DIR__ . '/classes/food.php';
     include_once __DIR__ . '/classes/toy.php';
-
-
+    include_once __DIR__ . '/classes/user.php';
+    $cibo = new Food('25/05/2026','pollo,macinato','proteico','cane',true,);
+    $utente = new User('sara', 'ferri',28,false, null);
+    $giochi = new Toy('bastone','grigio','cina','5€','gatto',false);
     ?>
 
 <!DOCTYPE html>
@@ -18,10 +20,22 @@
 <body>
     <?php  
     
-    $cibo = new Food('25/05/2026','pollo,macinato','proteico','cane',true,);
     var_dump($cibo);
-    $giochi = new Toy('bastone','grigio','cina','big','gatto',false);
-    var_dump($giochi)
+    var_dump($utente);
+    var_dump($giochi);
     ?>
+    <p>
+        <?php echo $utente->getSconto(); ?>
+    </p>
+    <p>
+        <?php echo $utente->getAge(); ?>
+    </p>
+    <p>
+        <?php echo $giochi->getprice(); ?>
+    </p>
+    
+
+
+    
 </body>
 </html>

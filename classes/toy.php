@@ -6,15 +6,15 @@ class Toy extends ShopAnimals{
     protected $name;
     protected $colour;
     protected $country;
-    protected $size;
+    protected $price;
 
 
-function __construct($_name,$_colour,$_country,$_size,$_razza,$_isVailability){
+function __construct($_name,$_colour,$_country,$_price,$_razza,$_isVailability){
     parent:: __construct($_razza, $_isVailability);
     $this->name = $_name;
     $this->colour = $_colour;
     $this->country = $_country;
-    $this->size = $_size;
+    $this->price = $_price;
 }
 
 public function getName(){
@@ -26,8 +26,8 @@ public function getColour(){
 public function getCountry(){
     return $this->country;
 }
-public function getSize(){
-    return $this->size;
+public function getprice(){
+    return $this->price;
 }
 }
 
