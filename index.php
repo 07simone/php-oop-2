@@ -7,8 +7,8 @@
     
 
     $cibo = new Food('25/05/2026','pollo,macinato','proteico','cane',true,);
-    $utente = new User('sara', 'ferri',56,false, null, 150);
-    $giochi = new Toy('bastone','grigio','cina',665,'gatto',false);
+    $utente = new User('sara', 'ferri',24,false, null, 150);
+    $giochi = new Toy('bastone','grigio','cina',85,'gatto',false);
     ?>
 
 <!DOCTYPE html>
@@ -33,7 +33,7 @@
         <?php echo $utente->getAge(); ?>
     </p>
     <p>
-        <?php echo $utente->setCarta_credito($giochi->getPrice()); ?>
+        <?php  echo 'hai appena effettuato un acquisto pari a ' . $giochi->getprice() . ' ti restano sulla carta un totale di: ' . $utente->setCarta_credito($giochi->getprice()); ?>
     </p>
     
     

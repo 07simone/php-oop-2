@@ -50,22 +50,19 @@ class User{
             $this->sconto = 0;
             return "non ci sarà ulteriore sconto dato che l'utente ha più di 25 anni";
         }
-        return $this->sconto;
     }
+    
     public function setCarta_credito($price){
         if( $price > $this->carta_credito){
-            return "saldo non disponibile per l'acquisto";
+            return "Saldo non disponibile sulla carta";
         }
-            return $this->carta_credito - $price;
-        
-        
+
+        return $this->carta_credito - $price;
     }
     
     public function getIs_registered(){
         return $this->is_registered = $_is_registered;
     }
-    
 }
-    
 
 ?>
