@@ -1,7 +1,6 @@
 <?php 
 
 include_once __DIR__ . '/shop.php';
-
 class Toy extends ShopAnimals{
     protected $name;
     protected $colour;

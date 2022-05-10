@@ -1,6 +1,6 @@
 <?php 
 
-
+include_once __DIR__ . '/bancomat.php';
 
 class User{
     protected $name;
@@ -8,26 +8,30 @@ class User{
     protected $age;
     protected $is_registered;
     protected $sconto;
+    protected $carta_credito;
 
 
 
-    function __construct($_name,$_lastname,$_age,$_is_registered,$_sconto){
+    function __construct($_name,$_lastname,$_age,$_is_registered,$_sconto, $_carta_credito){
 
         $this->name = $_name;
         $this->lastname = $_lastname;
         $this->age = $_age;
         $this->is_registered = $_is_registered;
-        $this->sconto = $_sconto;
+        $this->sconto = $this->setSconto();
+        $this->setCarta_credito($_carta_credito);
 
 
     }
 
     
 
-    public function getSconto(){
-        if($this->is_registered === true){
+    public function setSconto(){
+        if($this->is_registered){
+            $this->sconto = 20;
             return "verrà applicato uno sconto del 20% dato che l'utente è registrato";
         } else{
+            $this-> sconto =0;
             return "non verrà applicato uno sconto del 20% dato che l'utente non è registrato";
         }
         return  $this->sconto;
@@ -47,7 +51,10 @@ class User{
         }
         return $this->sconto;
     }
-
+    public function setCarta_credito($_carta_credito){
+        if(!$_carta_credito instanceof Bancomat) return false;
+        $this->carta_credito = $_carta_credito;
+    }
     public function getLastName(){
         return $this->lastname = $_lastname;
     }

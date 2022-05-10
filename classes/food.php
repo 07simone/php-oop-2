@@ -2,12 +2,11 @@
 
 include_once __DIR__ . '/shop.php';
 
-
     class Food extends ShopAnimals{
         protected $deadline;
         protected $ingrediants;
         protected $feeding;
-
+    
     function __construct($_deadline,$_ingrediants,$_feeding,$_razza,$_isVailability){
         parent::__construct($_razza,$_isVailability);
         $this->deadline = $_deadline;

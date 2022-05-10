@@ -4,8 +4,11 @@
     include_once __DIR__ . '/classes/food.php';
     include_once __DIR__ . '/classes/toy.php';
     include_once __DIR__ . '/classes/user.php';
+    include_once __DIR__ . '/classes/bancomat.php';
+
     $cibo = new Food('25/05/2026','pollo,macinato','proteico','cane',true,);
-    $utente = new User('sara', 'ferri',28,false, null);
+    $card = new Bancomat('154824555','25/02/2025',150);
+    $utente = new User('sara', 'ferri',28,false, null, $card);
     $giochi = new Toy('bastone','grigio','cina','5€','gatto',false);
     ?>
 
@@ -23,15 +26,16 @@
     var_dump($cibo);
     var_dump($utente);
     var_dump($giochi);
+    var_dump($card);
     ?>
     <p>
-        <?php echo $utente->getSconto(); ?>
+        <?php echo $utente->setSconto(); ?>
     </p>
     <p>
         <?php echo $utente->getAge(); ?>
     </p>
     <p>
-        <?php echo $giochi->getprice(); ?>
+        <?php echo $card->getdisponibilità(); ?>
     </p>
     
 
