@@ -1,6 +1,6 @@
 <?php 
 
-include_once __DIR__ . '/bancomat.php';
+
 
 class User{
     protected $name;
@@ -11,7 +11,8 @@ class User{
     protected $carta_credito;
 
 
-
+        
+    
     function __construct($_name,$_lastname,$_age,$_is_registered,$_sconto, $_carta_credito){
 
         $this->name = $_name;
@@ -19,7 +20,7 @@ class User{
         $this->age = $_age;
         $this->is_registered = $_is_registered;
         $this->sconto = $this->setSconto();
-        $this->setCarta_credito($_carta_credito);
+        $this->carta_credito = $_carta_credito ;
 
 
     }
@@ -51,13 +52,15 @@ class User{
         }
         return $this->sconto;
     }
-    public function setCarta_credito($_carta_credito){
-        if(!$_carta_credito instanceof Bancomat) return false;
-        $this->carta_credito = $_carta_credito;
+    public function setCarta_credito($price){
+        if( $price > $this->carta_credito){
+            return "saldo non disponibile per l'acquisto";
+        }
+            return $this->carta_credito - $price;
+        
+        
     }
-    public function getLastName(){
-        return $this->lastname = $_lastname;
-    }
+    
     public function getIs_registered(){
         return $this->is_registered = $_is_registered;
     }
