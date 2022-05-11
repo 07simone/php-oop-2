@@ -14,9 +14,15 @@ class User{
         
     
     function __construct($_name,$_lastname,$_age,$_is_registered,$_sconto, $_carta_credito){
-
+        if(is_numeric($_name)){
+            throw new Exception("non è possibile inserire un numero al posto di un nome",500 );
+        }
         $this->name = $_name;
         $this->lastname = $_lastname;
+
+        if(is_string($_age)){
+            throw new Exception("non è possibile inserire una stringa al posto di un numero",500 );
+        }
         $this->age = $_age;
         $this->is_registered = $_is_registered;
         $this->sconto = $this->setSconto();

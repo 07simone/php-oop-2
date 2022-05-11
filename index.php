@@ -7,8 +7,16 @@
     
 
     $cibo = new Food('25/05/2026','pollo,macinato','proteico','cane',true,);
-    $utente = new User('sara', 'ferri',24,false, null, 150);
-    $giochi = new Toy('bastone','grigio','cina',85,'gatto',false);
+    var_dump($cibo);
+    try{
+        $utente = new User('sara', 'ferri',25,false, null, 150);
+        var_dump($utente);
+    } catch(Exception $e){
+        echo 'impossibile creare un istanza di tipo utente perchè ' . $e->getMessage();
+    }
+   
+    $giochi = new Toy('bastone','grigio','cina',85 ,'gatto',false);
+    var_dump($giochi);
     ?>
 
 <!DOCTYPE html>
@@ -22,9 +30,6 @@
 <body>
     <?php  
     
-    var_dump($cibo);
-    var_dump($utente);
-    var_dump($giochi);
     ?>
     <p>
         <?php echo $utente->setSconto(); ?>
